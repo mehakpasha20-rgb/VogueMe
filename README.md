@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # VogueMe - AI-Inspired Fashion E-Commerce Platform
 
 VogueMe is a fashion e-commerce platform that helps users discover matching dresses and jewellery using intelligent recommendation logic. The system includes color-based matching, mood-based shopping, outfit generation, virtual jewellery try-on, and an AI fashion assistant chatbot.
@@ -256,3 +257,6 @@ VogueMe/
 ## 📄 License
 
 ISC
+=======
+# VogueMe
+>>>>>>> a5731769a11cce01bfe9c48a8f1837f2e20bd6f6
