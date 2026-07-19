@@ -48,8 +48,24 @@ const sampleDresses = [
     "category": "Casual",
     "color": "Red",
     "price": 4490,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB08885-2500x3749.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB08567-2500x3750.jpg",
     "description": "Premium Red Women\\'s Casual Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Zivah Kurta Suit",
+    "category": "Casual",
+    "color": "Red",
+    "price": 3680,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/35A0925_1.jpg",
+    "description": "Premium Red Women\\'s Casual Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Elegant Brown Printed Lawn Shalwar Kameez",
+    "category": "Casual",
+    "color": "Brown",
+    "price": 4800,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB00838-_1.jpg",
+    "description": "Premium Brown Women\\'s Casual Suit - Authentic Pakistani Designer Wear."
   },
   {
     "name": "Akbar Aslam Poise Kurta Suit",
@@ -60,52 +76,36 @@ const sampleDresses = [
     "description": "Premium Red Women\\'s Casual Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Veloure Kurta Suit",
+    "name": "Akbar Aslam Nayeli Kurta Suit",
     "category": "Casual",
     "color": "Red",
-    "price": 2250,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/1L8A4364.jpg",
+    "price": 2550,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/7I0A1015-2500x3748.jpg",
     "description": "Premium Red Women\\'s Casual Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Linea Kurta Suit",
+    "name": "Akbar Aslam Yanie Kurta Suit",
     "category": "Casual",
-    "color": "Red",
-    "price": 2800,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/35A1277_4.jpg",
-    "description": "Premium Red Women\\'s Casual Suit - Authentic Pakistani Designer Wear."
+    "color": "Brown",
+    "price": 4800,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB06545-_1.jpg",
+    "description": "Premium Brown Women\\'s Casual Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Odette Kurta Suit",
+    "name": "Akbar Aslam Liore Kurta Suit",
     "category": "Casual",
-    "color": "Red",
-    "price": 2660,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/35A7402_1_807fd258-22e4-49b8-af6b-a901a70ff3c6.jpg",
-    "description": "Premium Red Women\\'s Casual Suit - Authentic Pakistani Designer Wear."
+    "color": "Brown",
+    "price": 4800,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB06487-_1.jpg",
+    "description": "Premium Brown Women\\'s Casual Suit - Authentic Pakistani Designer Wear."
   },
   {
     "name": "Elegant Brown Printed Lawn Shalwar Kameez",
     "category": "Casual",
     "color": "Brown",
     "price": 4800,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB09269_1.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB01354_1.jpg",
     "description": "Premium Brown Women\\'s Casual Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Zarel Kurta Suit",
-    "category": "Casual",
-    "color": "Brown",
-    "price": 4800,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB09342_1.jpg",
-    "description": "Premium Brown Women\\'s Casual Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Elegant Red Printed Lawn Shalwar Kameez",
-    "category": "Casual",
-    "color": "Red",
-    "price": 2800,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/35A9612_1.jpg",
-    "description": "Premium Red Women\\'s Casual Suit - Authentic Pakistani Designer Wear."
   },
   {
     "name": "Akbar Aslam Blenche Kurta Suit",
@@ -116,212 +116,212 @@ const sampleDresses = [
     "description": "Premium Red Women\\'s Casual Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Cazel Kurta Suit",
-    "category": "Casual",
-    "color": "Brown",
-    "price": 4800,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB08469_1.jpg",
-    "description": "Premium Brown Women\\'s Casual Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Nixon Kurta Suit",
-    "category": "Casual",
-    "color": "Brown",
-    "price": 4800,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB00917-_1.jpg",
-    "description": "Premium Brown Women\\'s Casual Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Willow Kurta Suit",
-    "category": "Casual",
-    "color": "White",
-    "price": 3600,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB06663-2500x3750.jpg",
-    "description": "Premium White Women\\'s Casual Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Eclipse Kurta Suit",
+    "name": "Elegant Red Printed Lawn Shalwar Kameez",
     "category": "Casual",
     "color": "Red",
     "price": 4490,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB00311-2500x3750.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB00555-2500x3750.jpg",
     "description": "Premium Red Women\\'s Casual Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Yasmina Kurta Suit",
+    "name": "Akbar Aslam Ayzel Kurta Suit",
     "category": "Casual",
     "color": "Red",
-    "price": 2700,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/7I0A1089-2500x3749.jpg",
+    "price": 4490,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB07074-2500x3750.jpg",
     "description": "Premium Red Women\\'s Casual Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Ravina Kurta Suit",
+    "name": "Elegant Red Printed Lawn Shalwar Kameez",
     "category": "Casual",
     "color": "Red",
-    "price": 2700,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/7I0A9970-2500x3748.jpg",
+    "price": 4490,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB08885-2500x3749.jpg",
     "description": "Premium Red Women\\'s Casual Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Friya Kurta Suit",
+    "name": "Stitched Printed Jacquard Shirt Kurta Suit",
+    "category": "Casual",
+    "color": "Black",
+    "price": 2350,
+    "image": "https://cdn.shopify.com/s/files/1/0740/1753/8280/files/FW25BSP025_1.jpg",
+    "description": "Premium Black Women\\'s Casual Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Amaya Kurta Suit",
+    "category": "Casual",
+    "color": "Red",
+    "price": 4490,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB07746-2500x3750.jpg",
+    "description": "Premium Red Women\\'s Casual Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Stitched Printed Fancy Slub Shirt Kurta Suit",
+    "category": "Casual",
+    "color": "Yellow",
+    "price": 2350,
+    "image": "https://cdn.shopify.com/s/files/1/0740/1753/8280/files/FW25BSP023_1.jpg",
+    "description": "Premium Yellow Women\\'s Casual Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Elegant Teal Chiffon Maxi Dress (Party #1)",
+    "category": "Party",
+    "color": "Blue",
+    "price": 2490,
+    "image": "/images/party_1.png",
+    "description": "Stunning teal blue flowy chiffon floor-length maxi dress with classic sheer sleeves and subtle silver embellishments."
+  },
+  {
+    "name": "Stunning White Tiered Ruffled Gharara (Party #2)",
+    "category": "Party",
+    "color": "White",
+    "price": 2890,
+    "image": "/images/party_2.png",
+    "description": "Flowy pure white georgette short tunic featuring dramatic multi-tiered ruffled sleeves and a matching flared skirt/gharara."
+  },
+  {
+    "name": "Floral Blue Flared Tunic Suit (Party #3)",
+    "category": "Party",
+    "color": "Blue",
+    "price": 2190,
+    "image": "/images/party_3.png",
+    "description": "Charming white chiffon short tunic with blue floral patterns, featuring matching floral flared sleeves with string detail."
+  },
+  {
+    "name": "Crimson Red Tiered Ruffle Tunic (Party #4)",
+    "category": "Party",
+    "color": "Red",
+    "price": 2390,
+    "image": "/images/party_4.png",
+    "description": "Striking ruby red chiffon short tunic featuring gorgeous multi-tiered flared sleeves and drawstring wrist details."
+  },
+  {
+    "name": "Lime Green Embroidered Scalloped Co-ord (Party #5)",
+    "category": "Party",
+    "color": "Green",
+    "price": 1990,
+    "image": "/images/party_5.png",
+    "description": "Chic solid sage/lime green matching shirt and trouser co-ord set featuring delicate white floral embroidery and scalloped border details."
+  },
+  {
+    "name": "Akbar Aslam Roselle Kurta Suit",
+    "category": "Party",
+    "color": "Pink",
+    "price": 4450,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB04293-2500x3751.jpg",
+    "description": "Premium Pink Women\\'s Party Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Parizay Kurta Suit",
+    "category": "Party",
+    "color": "Brown",
+    "price": 2660,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/DSC06880_1.jpg",
+    "description": "Premium Brown Women\\'s Party Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Verdelle Kurta Suit",
+    "category": "Party",
+    "color": "White",
+    "price": 2300,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A1447-2500x3748.jpg",
+    "description": "Premium White Women\\'s Party Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Naranj Kurta Suit",
     "category": "Party",
     "color": "Brown",
     "price": 3390,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/DSC06790_1.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/DSC02362_2.jpg",
     "description": "Premium Brown Women\\'s Party Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Stitched Embroidered Sheesha Silk Shirt+ Trouser Kurta Suit",
-    "category": "Party",
-    "color": "Red",
-    "price": 1316,
-    "image": "https://cdn.shopify.com/s/files/1/0740/1753/8280/files/FW25FOR028P2T-1-Edited_2a969a85-c5ae-4d76-860b-b3c6fa882afb.png",
-    "description": "Premium Red Women\\'s Party Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "NATH AF Kurta Suit",
-    "category": "Party",
-    "color": "Red",
-    "price": 1250,
-    "image": "https://cdn.shopify.com/s/files/1/0717/3934/3066/files/NATH-AF-04-2.png",
-    "description": "Premium Red Women\\'s Party Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Dandelion Dream Kurta Suit",
-    "category": "Party",
-    "color": "Yellow",
-    "price": 3500,
-    "image": "https://cdn.shopify.com/s/files/1/0717/3934/3066/files/Dandelion-Dream-6.jpg",
-    "description": "Premium Yellow Women\\'s Party Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Sapphire Kurta Suit",
-    "category": "Party",
-    "color": "White",
-    "price": 4450,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB04964-2500x3750.jpg",
-    "description": "Premium White Women\\'s Party Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Dewdrop Kurta Suit",
-    "category": "Party",
-    "color": "Red",
-    "price": 4500,
-    "image": "https://cdn.shopify.com/s/files/1/0717/3934/3066/files/Dewdrop_5.webp",
-    "description": "Premium Red Women\\'s Party Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Moonlit Whisper Kurta Suit",
-    "category": "Party",
-    "color": "Red",
-    "price": 3500,
-    "image": "https://cdn.shopify.com/s/files/1/0717/3934/3066/files/Moonlit_Whisper_8.jpg",
-    "description": "Premium Red Women\\'s Party Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Lumina Kurta Suit",
-    "category": "Party",
-    "color": "Red",
-    "price": 3980,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A0579-2500x3749.jpg",
-    "description": "Premium Red Women\\'s Party Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Citrus Bloom Kurta Suit",
-    "category": "Party",
-    "color": "Orange",
-    "price": 3500,
-    "image": "https://cdn.shopify.com/s/files/1/0717/3934/3066/files/Citrus-Bloom-6.jpg",
-    "description": "Premium Orange Women\\'s Party Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Mevra Kurta Suit",
-    "category": "Party",
-    "color": "Red",
-    "price": 3220,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/35A9729_1.jpg",
-    "description": "Premium Red Women\\'s Party Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Ruqai Kurta Suit",
-    "category": "Party",
-    "color": "Brown",
-    "price": 2720,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/DSC02551_1.jpg",
-    "description": "Premium Brown Women\\'s Party Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Elarin Kurta Suit",
-    "category": "Party",
-    "color": "Red",
-    "price": 2700,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/35A1811_1.jpg",
-    "description": "Premium Red Women\\'s Party Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Nixia Kurta Suit",
-    "category": "Party",
-    "color": "White",
-    "price": 3600,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB09015-2500x3750.jpg",
-    "description": "Premium White Women\\'s Party Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Stunning Brown Festive Chiffon Dress",
-    "category": "Party",
-    "color": "Brown",
-    "price": 4800,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB08011-_1.jpg",
-    "description": "Premium Brown Women\\'s Party Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Naira Kurta Suit",
-    "category": "Party",
-    "color": "Red",
-    "price": 4490,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB07957-2500x3749.jpg",
-    "description": "Premium Red Women\\'s Party Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Stitched Digital Printed Shirt Kurta Suit",
+    "name": "Akbar Aslam Avena Kurta Suit",
     "category": "Party",
     "color": "Green",
-    "price": 3950,
-    "image": "https://cdn.shopify.com/s/files/1/0740/1753/8280/files/SS25STP650_1.jpg",
+    "price": 3980,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A1350-2500x3749.jpg",
     "description": "Premium Green Women\\'s Party Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Eveline Kurta Suit",
-    "category": "Party",
-    "color": "Red",
-    "price": 3040,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/35A8220_2.jpg",
-    "description": "Premium Red Women\\'s Party Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Briar Kurta Suit",
+    "name": "Akbar Aslam Marigold Kurta Suit",
     "category": "Party",
     "color": "White",
     "price": 4450,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB04999-2500x3749.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB03153-2500x3750.jpg",
     "description": "Premium White Women\\'s Party Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Lynie Kurta Suit",
+    "name": "Glamour Kurta Suit",
+    "category": "Party",
+    "color": "Pink",
+    "price": 3500,
+    "image": "https://cdn.shopify.com/s/files/1/0717/3934/3066/files/Glamour-3.png",
+    "description": "Premium Pink Women\\'s Party Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Mehrin Kurta Suit",
+    "category": "Party",
+    "color": "Red",
+    "price": 2700,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/7I0A0627-2500x3748.jpg",
+    "description": "Premium Red Women\\'s Party Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Indigo Kurta Suit",
+    "category": "Party",
+    "color": "Blue",
+    "price": 4450,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB02442-2500x3750.jpg",
+    "description": "Premium Blue Women\\'s Party Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Emerald Allure Kurta Suit",
+    "category": "Party",
+    "color": "Green",
+    "price": 3500,
+    "image": "https://cdn.shopify.com/s/files/1/0717/3934/3066/files/Bottle-Green-5.jpg",
+    "description": "Premium Green Women\\'s Party Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Opulent Echo Kurta Suit",
+    "category": "Party",
+    "color": "Blue",
+    "price": 3500,
+    "image": "https://cdn.shopify.com/s/files/1/0717/3934/3066/files/Opulent_Echo_1.jpg",
+    "description": "Premium Blue Women\\'s Party Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Mocha Kurta Suit",
     "category": "Party",
     "color": "White",
-    "price": 3600,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB09489-2500x3750.jpg",
+    "price": 4450,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB03108-2500x3749.jpg",
     "description": "Premium White Women\\'s Party Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Elysian Kurta Suit",
+    "name": "Blue Mirage Kurta Suit",
     "category": "Party",
-    "color": "Brown",
-    "price": 4590,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/1O9A4313.jpg",
-    "description": "Premium Brown Women\\'s Party Suit - Authentic Pakistani Designer Wear."
+    "color": "Blue",
+    "price": 3500,
+    "image": "https://cdn.shopify.com/s/files/1/0717/3934/3066/files/Crimson_Dusk_8.webp",
+    "description": "Premium Blue Women\\'s Party Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Aster Kurta Suit",
+    "category": "Party",
+    "color": "Red",
+    "price": 4490,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB08318-2500x3750.jpg",
+    "description": "Premium Red Women\\'s Party Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Aaralyn Kurta Suit",
+    "category": "Party",
+    "color": "Red",
+    "price": 2700,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/7I0A0833-2500x3748.jpg",
+    "description": "Premium Red Women\\'s Party Suit - Authentic Pakistani Designer Wear."
   },
   {
     "name": "Akbar Aslam Exquisite Grey Bridal Gown (Wedding #1)",
@@ -340,76 +340,28 @@ const sampleDresses = [
     "description": "Graceful pastel peach short kurta heavily embroidered with matching gold-chevron gharara pants. Part of our Luxury Bridal Collection."
   },
   {
-    "name": "Akbar Aslam Azalea Kurta Suit",
-    "category": "Wedding",
-    "color": "Yellow",
-    "price": 2980,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A0805-2500x3749.jpg",
-    "description": "Premium Yellow Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Emarelle Kurta Suit",
-    "category": "Wedding",
-    "color": "Pink",
-    "price": 3980,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/DSF0210_1.jpg",
-    "description": "Premium Pink Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Exquisite Red Akbar Aslam Bridal Lehenga Suit",
+    "name": "Akbar Aslam Noeva Kurta Suit",
     "category": "Wedding",
     "color": "Red",
-    "price": 4490,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB08567-2500x3750.jpg",
+    "price": 3220,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/35A1583_1.jpg",
     "description": "Premium Red Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Sapphire Kurta Suit",
-    "category": "Wedding",
-    "color": "White",
-    "price": 3600,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB07660-2500x3750.jpg",
-    "description": "Premium White Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Parizay Kurta Suit",
+    "name": "Akbar Aslam Tunio Kurta Suit",
     "category": "Wedding",
     "color": "Brown",
-    "price": 2660,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/DSC06880_1.jpg",
+    "price": 4800,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB09242_1.jpg",
     "description": "Premium Brown Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Kaelia Kurta Suit",
+    "name": "Akbar Aslam Surai Kurta Suit",
     "category": "Wedding",
     "color": "Red",
-    "price": 3980,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A0897-2500x3749.jpg",
+    "price": 2800,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/35A9940_2.jpg",
     "description": "Premium Red Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Exquisite Red Akbar Aslam Bridal Lehenga Suit",
-    "category": "Wedding",
-    "color": "Red",
-    "price": 4490,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB08132-2500x3750.jpg",
-    "description": "Premium Red Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Lotus Kurta Suit",
-    "category": "Wedding",
-    "color": "White",
-    "price": 4450,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB04343-2500x3749.jpg",
-    "description": "Premium White Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Roselle Kurta Suit",
-    "category": "Wedding",
-    "color": "Pink",
-    "price": 4450,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB04293-2500x3751.jpg",
-    "description": "Premium Pink Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
   },
   {
     "name": "Exquisite Brown Akbar Aslam Bridal Lehenga Suit",
@@ -420,219 +372,139 @@ const sampleDresses = [
     "description": "Premium Brown Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Armina Kurta Suit",
+    "name": "Akbar Aslam Qamari Kurta Suit",
+    "category": "Wedding",
+    "color": "Red",
+    "price": 2700,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/7I0A1172-2500x3748.jpg",
+    "description": "Premium Red Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Mehrunissa Kurta Suit",
+    "category": "Wedding",
+    "color": "Red",
+    "price": 2700,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/7I0A0097-2500x3749.jpg",
+    "description": "Premium Red Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Ruvea Kurta Suit",
+    "category": "Wedding",
+    "color": "Red",
+    "price": 4290,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A0098_1.jpg",
+    "description": "Premium Red Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Naazi Kurta Suit",
+    "category": "Wedding",
+    "color": "Red",
+    "price": 2700,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/7I0A0692-2500x3749.jpg",
+    "description": "Premium Red Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Nayara Kurta Suit",
     "category": "Wedding",
     "color": "Red",
     "price": 2550,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/7I0A0466-2500x3749.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/7I0A0770-2500x3749.jpg",
     "description": "Premium Red Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Canary Kurta Suit",
+    "name": "Akbar Aslam Dileo Kurta Suit",
     "category": "Wedding",
-    "color": "Red",
-    "price": 4490,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB00598-2500x3750.jpg",
-    "description": "Premium Red Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Wildflower Kurta Suit",
-    "category": "Wedding",
-    "color": "White",
-    "price": 4450,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB02858-2500x3750.jpg",
-    "description": "Premium White Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Zarielle Kurta Suit",
-    "category": "Wedding",
-    "color": "Black",
-    "price": 2980,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A1206-2500x3749.jpg",
-    "description": "Premium Black Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
+    "color": "Brown",
+    "price": 4800,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB08985_1.jpg",
+    "description": "Premium Brown Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
   },
   {
     "name": "Exquisite Brown Akbar Aslam Bridal Lehenga Suit",
     "category": "Wedding",
     "color": "Brown",
-    "price": 4490,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB09817-_1.jpg",
+    "price": 4800,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB09389_1.jpg",
     "description": "Premium Brown Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Coral Kurta Suit",
+    "name": "Akbar Aslam Emarelle Kurta Suit",
     "category": "Wedding",
     "color": "Pink",
-    "price": 4490,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB08182-2500x3750.jpg",
+    "price": 3980,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/DSF0210_1.jpg",
     "description": "Premium Pink Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Poppy Kurta Suit",
+    "name": "Akbar Aslam Celeste Kurta Suit",
     "category": "Wedding",
-    "color": "White",
-    "price": 4450,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB04692-2500x3750.jpg",
-    "description": "Premium White Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
+    "color": "Red",
+    "price": 2520,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A1965.jpg",
+    "description": "Premium Red Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Manrch Kurta Suit",
+    "name": "Akbar Aslam Raniyat Kurta Suit",
     "category": "Wedding",
-    "color": "White",
-    "price": 3600,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB08667-2500x3750.jpg",
-    "description": "Premium White Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Rivah Kurta Suit",
-    "category": "Traditional",
     "color": "Red",
-    "price": 2990,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/35A0628_1.jpg",
-    "description": "Premium Red Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
+    "price": 1800,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A2656.jpg",
+    "description": "Premium Red Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Elara Bridal Ensemble Kurta Suit",
-    "category": "Traditional",
+    "name": "Akbar Aslam Inaya Kurta Suit",
+    "category": "Wedding",
     "color": "Red",
-    "price": 4000,
-    "image": "https://cdn.shopify.com/s/files/1/0717/3934/3066/files/Elara_Bridal_Ensemble_1.jpg",
-    "description": "Premium Red Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
+    "price": 2560,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A1135_1.jpg",
+    "description": "Premium Red Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Surai Kurta Suit",
-    "category": "Traditional",
-    "color": "Red",
-    "price": 2800,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/35A9940_2.jpg",
-    "description": "Premium Red Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Rosette Kurta Suit",
-    "category": "Traditional",
+    "name": "Akbar Aslam Gulnaz Kurta Suit",
+    "category": "Wedding",
     "color": "Pink",
-    "price": 3500,
-    "image": "https://cdn.shopify.com/s/files/1/0717/3934/3066/files/Rosette_8.webp",
-    "description": "Premium Pink Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
+    "price": 1700,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A2367.jpg",
+    "description": "Premium Pink Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Marjaan Kurta Suit",
-    "category": "Traditional",
+    "name": "Akbar Aslam Nivelle Kurta Suit",
+    "category": "Wedding",
     "color": "Red",
-    "price": 2700,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/7I0A0551-2500x3749.jpg",
-    "description": "Premium Red Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
+    "price": 4290,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A0003_1.jpg",
+    "description": "Premium Red Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Nurel Kurta Suit",
-    "category": "Traditional",
-    "color": "Brown",
-    "price": 4800,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB08540_1.jpg",
-    "description": "Premium Brown Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Classic Brown Embroidered Traditional Shalwar Kameez",
-    "category": "Traditional",
-    "color": "Brown",
-    "price": 4800,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB01354_1.jpg",
-    "description": "Premium Brown Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Stitched Printed Khaddar Shirt+ Dupatta Kurta Suit",
-    "category": "Traditional",
-    "color": "Green",
-    "price": 3350,
-    "image": "https://cdn.shopify.com/s/files/1/0740/1753/8280/files/FW25MHY510BP2D_1.jpg",
-    "description": "Premium Green Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Classic Brown Embroidered Traditional Shalwar Kameez",
-    "category": "Traditional",
-    "color": "Brown",
-    "price": 4800,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB09306-_1.jpg",
-    "description": "Premium Brown Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Indigo Kurta Suit",
-    "category": "Traditional",
-    "color": "Blue",
-    "price": 4450,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB02442-2500x3750.jpg",
-    "description": "Premium Blue Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Aveline Kurta Suit",
-    "category": "Traditional",
-    "color": "Black",
-    "price": 3980,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A0158-2500x3749.jpg",
-    "description": "Premium Black Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Evania Kurta Suit",
-    "category": "Traditional",
-    "color": "Red",
-    "price": 2660,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/35A7191_1.jpg",
-    "description": "Premium Red Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Dileo Kurta Suit",
-    "category": "Traditional",
-    "color": "Brown",
-    "price": 4800,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB08985_1.jpg",
-    "description": "Premium Brown Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Porcelain Kurta Suit",
-    "category": "Traditional",
+    "name": "Akbar Aslam Tenebris Kurta Suit",
+    "category": "Wedding",
     "color": "Red",
     "price": 2250,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/1L8A3102.jpg",
-    "description": "Premium Red Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/1L8A3260.jpg",
+    "description": "Premium Red Women\\'s Wedding Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Amaya Kurta Suit",
-    "category": "Traditional",
-    "color": "Red",
-    "price": 4490,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB07746-2500x3750.jpg",
-    "description": "Premium Red Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Liora Kurta Suit",
-    "category": "Traditional",
-    "color": "Red",
-    "price": 4490,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB01122-2500x3749.jpg",
-    "description": "Premium Red Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Mehrnaz Kurta Suit",
+    "name": "Akbar Aslam Zayna Kurta Suit",
     "category": "Traditional",
     "color": "Red",
     "price": 2700,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/7I0A1377-2500x3748.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/7I0A1436-2500x3749.jpg",
     "description": "Premium Red Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Classic Brown Embroidered Traditional Shalwar Kameez",
-    "category": "Traditional",
-    "color": "Brown",
-    "price": 4800,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB09612_1.jpg",
-    "description": "Premium Brown Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Petalia Kurta Suit",
+    "name": "Akbar Aslam Cielle Kurta Suit",
     "category": "Traditional",
     "color": "Red",
-    "price": 2660,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/35A8469_1.jpg",
+    "price": 3040,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/35A6947_1.jpg",
+    "description": "Premium Red Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Ravina Kurta Suit",
+    "category": "Traditional",
+    "color": "Red",
+    "price": 2700,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/7I0A9970-2500x3748.jpg",
     "description": "Premium Red Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
   },
   {
@@ -644,147 +516,155 @@ const sampleDresses = [
     "description": "Premium White Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Zivara Kurta Suit",
-    "category": "Formal",
+    "name": "Akbar Aslam Samara Kurta Suit",
+    "category": "Traditional",
     "color": "Red",
-    "price": 4290,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A0536_1.jpg",
-    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+    "price": 2550,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/7I0A9857-2500x3748.jpg",
+    "description": "Premium Red Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Aurea Kurta Suit",
-    "category": "Formal",
-    "color": "Red",
-    "price": 2800,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A1483-2500x3748.jpg",
-    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Ardyn Kurta Suit",
-    "category": "Formal",
-    "color": "Red",
-    "price": 4290,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A0041_1.jpg",
-    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Poise Kurta Suit",
-    "category": "Formal",
-    "color": "Red",
-    "price": 2240,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A1927_4.jpg",
-    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Raniyat Kurta Suit",
-    "category": "Formal",
-    "color": "Red",
-    "price": 1800,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A2656.jpg",
-    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Allure Kurta Suit",
-    "category": "Formal",
-    "color": "Red",
-    "price": 2400,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A0888.jpg",
-    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Ornella Kurta Suit",
-    "category": "Formal",
-    "color": "Red",
+    "name": "Citrus Bloom Kurta Suit",
+    "category": "Traditional",
+    "color": "Orange",
     "price": 3500,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A1052.jpg",
-    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+    "image": "https://cdn.shopify.com/s/files/1/0717/3934/3066/files/Citrus-Bloom-6.jpg",
+    "description": "Premium Orange Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Solae Kurta Suit",
-    "category": "Formal",
+    "name": "Classic Red Embroidered Traditional Shalwar Kameez",
+    "category": "Traditional",
     "color": "Red",
-    "price": 2100,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A0341.jpg",
-    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+    "price": 1250,
+    "image": "https://cdn.shopify.com/s/files/1/0717/3934/3066/files/Iris_1.jpg",
+    "description": "Premium Red Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Stitched Muzlin Khaddar Suit",
-    "category": "Formal",
+    "name": "Classic Red Embroidered Traditional Shalwar Kameez",
+    "category": "Traditional",
     "color": "Red",
-    "price": 3600,
-    "image": "https://cdn.shopify.com/s/files/1/0740/1753/8280/files/FW25MUZ007B_1.jpg",
-    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+    "price": 2800,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/35A9612_1.jpg",
+    "description": "Premium Red Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Zarnigar Kurta Suit",
-    "category": "Formal",
+    "name": "Classic Brown Embroidered Traditional Shalwar Kameez",
+    "category": "Traditional",
+    "color": "Brown",
+    "price": 4800,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB09530_1.jpg",
+    "description": "Premium Brown Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "LP22-08 | Luxury Pret Kurta Suit",
+    "category": "Traditional",
     "color": "Red",
-    "price": 1900,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A4156.jpg",
-    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+    "price": 4100,
+    "image": "https://cdn.shopify.com/s/files/1/0717/3934/3066/files/LP-324-1.jpg",
+    "description": "Premium Red Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Nivelle Kurta Suit",
-    "category": "Formal",
+    "name": "Midnight Bloom Kurta Suit",
+    "category": "Traditional",
+    "color": "Blue",
+    "price": 4400,
+    "image": "https://cdn.shopify.com/s/files/1/0717/3934/3066/files/Midnight_Bloom_4.webp",
+    "description": "Premium Blue Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Elarin Kurta Suit",
+    "category": "Traditional",
     "color": "Red",
-    "price": 4290,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A0003_1.jpg",
-    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+    "price": 2700,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/35A1811_1.jpg",
+    "description": "Premium Red Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Sylra Kurta Suit",
-    "category": "Formal",
+    "name": "Akbar Aslam Azalea Kurta Suit",
+    "category": "Traditional",
+    "color": "Green",
+    "price": 2980,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A0805-2500x3749.jpg",
+    "description": "Premium Green Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Dewdrop Kurta Suit",
+    "category": "Traditional",
     "color": "Red",
-    "price": 4290,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A1256_5.jpg",
-    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+    "price": 4500,
+    "image": "https://cdn.shopify.com/s/files/1/0717/3934/3066/files/Dewdrop_5.webp",
+    "description": "Premium Red Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Caelis Kurta Suit",
-    "category": "Formal",
-    "color": "Red",
-    "price": 4290,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A0677_1.jpg",
-    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
-  },
-  {
-    "name": "Akbar Aslam Gulnaz Kurta Suit",
-    "category": "Formal",
+    "name": "Neon Nova Kurta Suit",
+    "category": "Traditional",
     "color": "Pink",
-    "price": 1700,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A2367.jpg",
-    "description": "Premium Pink Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+    "price": 3500,
+    "image": "https://cdn.shopify.com/s/files/1/0717/3934/3066/files/Neon-Nova-1.jpg",
+    "description": "Premium Pink Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Aurex Kurta Suit",
-    "category": "Formal",
+    "name": "Akbar Aslam Marigold Kurta Suit",
+    "category": "Traditional",
     "color": "Red",
-    "price": 4290,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A0598_1.jpg",
-    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+    "price": 4490,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB06764-2500x3749.jpg",
+    "description": "Premium Red Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Dynara Kurta Suit",
-    "category": "Formal",
+    "name": "Classic Brown Embroidered Traditional Shalwar Kameez",
+    "category": "Traditional",
+    "color": "Brown",
+    "price": 4800,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB08442_1.jpg",
+    "description": "Premium Brown Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Aveline Kurta Suit",
+    "category": "Traditional",
+    "color": "Orange",
+    "price": 3980,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A0158-2500x3749.jpg",
+    "description": "Premium Orange Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Sandstone Serenity Kurta Suit",
+    "category": "Traditional",
+    "color": "Brown",
+    "price": 1400,
+    "image": "https://cdn.shopify.com/s/files/1/0717/3934/3066/files/Beige-1.jpg",
+    "description": "Premium Brown Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Liora Kurta Suit",
+    "category": "Traditional",
     "color": "Red",
-    "price": 2160,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A2033.jpg",
-    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+    "price": 4490,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/MTB07279-2500x3750.jpg",
+    "description": "Premium Red Women\\'s Traditional Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Siyana Kurta Suit",
+    "name": "Stitched Muzlin Linen Suit",
+    "category": "Formal",
+    "color": "Purple",
+    "price": 4100,
+    "image": "https://cdn.shopify.com/s/files/1/0740/1753/8280/files/FW25MUZ017B_1.jpg",
+    "description": "Premium Purple Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Zimalia Kurta Suit",
     "category": "Formal",
     "color": "Red",
     "price": 2800,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A0205_1.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A0446.jpg",
     "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Avenor Kurta Suit",
+    "name": "Akbar Aslam Seraya Kurta Suit",
     "category": "Formal",
     "color": "Red",
     "price": 4290,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A1788_4.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A1818_1.jpg",
     "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
   },
   {
@@ -796,12 +676,132 @@ const sampleDresses = [
     "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
   },
   {
-    "name": "Akbar Aslam Celeste Kurta Suit",
+    "name": "Akbar Aslam Aurea Kurta Suit",
     "category": "Formal",
     "color": "Red",
-    "price": 2520,
-    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A1965.jpg",
+    "price": 2800,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A1483-2500x3748.jpg",
     "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Caelis Kurta Suit",
+    "category": "Formal",
+    "color": "Red",
+    "price": 4290,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A0677_1.jpg",
+    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Rajbano Kurta Suit",
+    "category": "Formal",
+    "color": "Pink",
+    "price": 1900,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A3957.jpg",
+    "description": "Premium Pink Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Ardyn Kurta Suit",
+    "category": "Formal",
+    "color": "Red",
+    "price": 4290,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A0041_1.jpg",
+    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Dynara Kurta Suit",
+    "category": "Formal",
+    "color": "Red",
+    "price": 2160,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A2033.jpg",
+    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Ornella Kurta Suit",
+    "category": "Formal",
+    "color": "Red",
+    "price": 3500,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A1052.jpg",
+    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Dilafroz Kurta Suit",
+    "category": "Formal",
+    "color": "Red",
+    "price": 1950,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A3650.jpg",
+    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Solae Kurta Suit",
+    "category": "Formal",
+    "color": "Red",
+    "price": 2100,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A0341.jpg",
+    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Zarnigar Kurta Suit",
+    "category": "Formal",
+    "color": "Red",
+    "price": 1900,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A4156.jpg",
+    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Aurex Kurta Suit",
+    "category": "Formal",
+    "color": "Red",
+    "price": 4290,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A0598_1.jpg",
+    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Zarin Kurta Suit",
+    "category": "Formal",
+    "color": "Red",
+    "price": 2280,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A1359_1.jpg",
+    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Elisea Kurta Suit",
+    "category": "Formal",
+    "color": "Red",
+    "price": 4290,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A1656_1.jpg",
+    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Zivara Kurta Suit",
+    "category": "Formal",
+    "color": "Red",
+    "price": 4290,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A0536_1.jpg",
+    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Poise Kurta Suit",
+    "category": "Formal",
+    "color": "Red",
+    "price": 2240,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A1927_4.jpg",
+    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Akbar Aslam Siyana Kurta Suit",
+    "category": "Formal",
+    "color": "Red",
+    "price": 2800,
+    "image": "https://cdn.shopify.com/s/files/1/0316/1712/2442/files/2C5A0205_1.jpg",
+    "description": "Premium Red Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
+  },
+  {
+    "name": "Stitched Printed Linen Suit",
+    "category": "Formal",
+    "color": "Purple",
+    "price": 3850,
+    "image": "https://cdn.shopify.com/s/files/1/0740/1753/8280/files/H255-001B-3CY_b1e2d3a1-1c6d-45e2-bae2-3d1d2a0705e8.jpg",
+    "description": "Premium Purple Women\\'s Formal Suit - Authentic Pakistani Designer Wear."
   }
 ];
 
