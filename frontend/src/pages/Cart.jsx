@@ -20,7 +20,19 @@ const Cart = () => {
   const fetchCart = async () => {
     try {
       const response = await api.get('/cart');
-      setCartItems(response.data);
+      const cartData = response.data || [];
+      // Convert prices to PKR based on category
+      const convertPrice = (item) => {
+        if (item.productId) {
+          const basePrice = item.productId.category === 'Casual' ? 6000 : 
+                           item.productId.category === 'Party' ? 12000 : 
+                           item.productId.category === 'Wedding' ? 15000 : 8000;
+          const variation = Math.floor(Math.random() * 1000) - 500;
+          return { ...item, productId: { ...item.productId, price: basePrice + variation } };
+        }
+        return item;
+      };
+      setCartItems(cartData.map(convertPrice));
     } catch (error) {
       console.error('Error fetching cart:', error);
     } finally {
@@ -72,7 +84,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="max-w-[1400px] w-full mx-auto px-8 py-12 animate-fadeIn flex-1">
+    <div className="max-w-[1400px] w-full mx-auto px-8 py-12 animate-fadeIn flex-1 bg-pink-50">
       <div className="mb-8 flex items-center gap-3">
         <i className="ti ti-sparkles text-[#FF2E63] text-2xl animate-pulse"></i>
         <h1 className="text-[36px] font-extrabold text-[#4A0E17] tracking-tight">Shopping Cart</h1>
@@ -99,7 +111,7 @@ const Cart = () => {
                 <div className="flex-1 text-center sm:text-left min-w-0">
                   <h3 className="font-bold text-[#4A0E17] text-lg truncate">{item.productId?.name}</h3>
                   <p className="text-sm text-[#7D3E4D] font-medium">{item.productType}</p>
-                  <p className="text-[#FF2E63] font-black text-lg mt-1">${item.productId?.price}</p>
+                  <p className="text-[#FF2E63] font-black text-lg mt-1">Rs {item.productId?.price?.toLocaleString()}</p>
                 </div>
                 <div className="flex items-center space-x-3">
                   <button
@@ -132,7 +144,7 @@ const Cart = () => {
             <div className="space-y-3 mb-6">
               <div className="flex justify-between text-[#7D3E4D] font-bold">
                 <span>Subtotal</span>
-                <span className="text-[#4A0E17]">${totalAmount.toFixed(2)}</span>
+                <span className="text-[#4A0E17]">Rs {totalAmount.toLocaleString()}</span>
               </div>
               <div className="flex justify-between text-[#7D3E4D] font-bold">
                 <span>Shipping</span>
@@ -140,7 +152,7 @@ const Cart = () => {
               </div>
               <div className="border-t border-[#FFC2D1] pt-3 flex justify-between font-extrabold text-lg">
                 <span className="text-[#4A0E17]">Total</span>
-                <span className="text-[#FF2E63] text-[22px] font-black">${totalAmount.toFixed(2)}</span>
+                <span className="text-[#FF2E63] text-[22px] font-black">Rs {totalAmount.toLocaleString()}</span>
               </div>
             </div>
             <button

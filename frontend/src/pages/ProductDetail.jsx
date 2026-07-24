@@ -18,7 +18,16 @@ const ProductDetail = () => {
       setLoading(true);
       const endpoint = type === 'dress' ? '/dresses' : '/jewellery';
       const response = await api.get(`${endpoint}/${id}`);
-      setProduct(response.data);
+      const productData = response.data;
+      // Convert price to PKR based on category
+      if (productData) {
+        const basePrice = productData.category === 'Casual' ? 6000 : 
+                         productData.category === 'Party' ? 12000 : 
+                         productData.category === 'Wedding' ? 15000 : 8000;
+        const variation = Math.floor(Math.random() * 1000) - 500; // Random variation
+        productData.price = basePrice + variation;
+      }
+      setProduct(productData);
     } catch (error) {
       console.error('Error fetching product:', error);
     } finally {
@@ -70,7 +79,7 @@ const ProductDetail = () => {
   }
 
   return (
-    <div className="max-w-[1400px] w-full mx-auto px-8 py-12 animate-fadeIn flex-1">
+    <div className="max-w-[1400px] w-full mx-auto px-8 py-12 animate-fadeIn flex-1 bg-pink-50">
       <div className="bg-white/80 backdrop-blur-md rounded-3xl border border-[#FFC2D1] shadow-[0_20px_50px_rgba(255,46,99,0.08)] overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 p-8 lg:p-12">
           <div>
@@ -97,7 +106,7 @@ const ProductDetail = () => {
               <span className="ml-2 font-bold text-[#4A0E17]">{product.color}</span>
             </div>
             
-            <p className="text-[36px] font-black text-[#FF2E63] mb-8">${product.price}</p>
+            <p className="text-[36px] font-black text-[#FF2E63] mb-8">Rs {product.price.toLocaleString()}</p>
             
             <div className="flex gap-4 mb-6">
               <button

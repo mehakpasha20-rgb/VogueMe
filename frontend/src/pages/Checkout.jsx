@@ -49,7 +49,7 @@ const Checkout = () => {
   }
 
   return (
-    <div className="max-w-[1400px] w-full mx-auto px-8 py-12 animate-fadeIn flex-1">
+    <div className="max-w-[1400px] w-full mx-auto px-8 py-12 animate-fadeIn flex-1 bg-pink-50">
       <div className="mb-8 flex items-center gap-3">
         <i className="ti ti-sparkles text-[#FF2E63] text-2xl animate-pulse"></i>
         <h1 className="text-[36px] font-extrabold text-[#4A0E17] tracking-tight">Checkout</h1>

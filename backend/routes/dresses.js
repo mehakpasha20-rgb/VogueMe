@@ -61,19 +61,38 @@ router.get('/:id/matching-jewellery', async (req, res) => {
 
     const Jewellery = require('../models/Jewellery');
     
-    // Rule-based matching logic
-    const matchingJewellery = await Jewellery.find({
-      $or: [
-        { color: dress.color },
-        { color: { $in: ['Gold', 'Silver', 'Rose Gold'] } }
-      ]
+    // Smart color matching logic
+    const colorMatching = {
+      'Red': 'Gold',
+      'Blue': 'Silver',
+      'Black': 'Silver',
+      'White': 'Gold',
+      'Green': 'Gold',
+      'Pink': 'Rose Gold',
+      'Purple': 'Silver',
+      'Orange': 'Gold',
+      'Yellow': 'Gold'
+    };
+
+    // Get matching jewelry color based on dress color
+    const targetJewelryColor = colorMatching[dress.color] || 'Gold';
+    
+    // Find jewelry of the target color
+    const matchingJewellery = await Jewellery.find({ color: targetJewelryColor });
+    
+    // If no matches, fallback to any jewelry
+    const jewelleryToUse = matchingJewellery.length > 0 ? matchingJewellery : await Jewellery.find({});
+
+    // Get only ONE item per category
+    const necklace = jewelleryToUse.find(j => j.category === 'Necklace');
+    const earring = jewelleryToUse.find(j => j.category === 'Earrings');
+    const bracelet = jewelleryToUse.find(j => j.category === 'Bracelet' || j.category === 'Ring');
+
+    res.json({ 
+      necklaces: necklace ? [necklace] : [], 
+      earrings: earring ? [earring] : [], 
+      bracelets: bracelet ? [bracelet] : [] 
     });
-
-    const necklaces = matchingJewellery.filter(j => j.category === 'Necklace');
-    const earrings = matchingJewellery.filter(j => j.category === 'Earrings');
-    const bracelets = matchingJewellery.filter(j => j.category === 'Bracelet' || j.category === 'Ring');
-
-    res.json({ necklaces, earrings, bracelets });
   } catch (error) {
     res.status(500).json({ message: 'Server error', error: error.message });
   }

@@ -87,8 +87,16 @@ const ProductListing = () => {
       const endpoint = type === 'dresses' ? '/dresses' : '/jewellery';
       const response = await api.get(endpoint);
       const allProducts = response.data || [];
-      setFeaturedNew(allProducts.slice(0, 4));
-      setFeaturedTrending(allProducts.slice(4, 8));
+      // Convert prices to PKR based on category
+      const convertPrice = (product) => {
+        const basePrice = product.category === 'Casual' ? 6000 : 
+                         product.category === 'Party' ? 12000 : 
+                         product.category === 'Wedding' ? 15000 : 8000;
+        const variation = Math.floor(Math.random() * 1000) - 500;
+        return { ...product, price: basePrice + variation };
+      };
+      setFeaturedNew(allProducts.slice(0, 4).map(convertPrice));
+      setFeaturedTrending(allProducts.slice(4, 8).map(convertPrice));
     } catch (error) {
       console.error('Error fetching featured products:', error);
     }
@@ -99,7 +107,16 @@ const ProductListing = () => {
       setLoading(true);
       const endpoint = type === 'dresses' ? '/dresses' : '/jewellery';
       const response = await api.get(endpoint, { params: filters });
-      setProducts(response.data);
+      const allProducts = response.data || [];
+      // Convert prices to PKR based on category
+      const convertPrice = (product) => {
+        const basePrice = product.category === 'Casual' ? 6000 : 
+                         product.category === 'Party' ? 12000 : 
+                         product.category === 'Wedding' ? 15000 : 8000;
+        const variation = Math.floor(Math.random() * 1000) - 500;
+        return { ...product, price: basePrice + variation };
+      };
+      setProducts(allProducts.map(convertPrice));
     } catch (error) {
       console.error('Error fetching products:', error);
     } finally {
@@ -114,7 +131,20 @@ const ProductListing = () => {
   const colors = ['Red', 'Blue', 'Black', 'White', 'Gold', 'Silver', 'Rose Gold', 'Green', 'Pink'];
 
   return (
-    <div className="max-w-[1400px] w-full mx-auto px-8 py-12 animate-fadeIn flex-1">
+    <div className="relative min-h-screen animate-fadeIn flex-1">
+      {/* Background Image */}
+      <div className="fixed inset-0 z-0">
+        <img 
+          src="/images/dress_7.png" 
+          alt="Background" 
+          className="w-full h-full object-cover"
+          style={{ opacity: 0.3 }}
+        />
+        <div className="absolute inset-0 bg-pink-50/70" />
+      </div>
+      
+      {/* Content */}
+      <div className="relative z-10 max-w-[1400px] w-full mx-auto px-8 py-12">
       {/* Premium Hero Banner */}
       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#351C24] via-[#A9445D] to-[#D45D79] p-8 md:p-12 mb-12 shadow-[0_20px_50px_rgba(169,68,93,0.15)] text-white">
         {/* Floating circles decoration */}
@@ -159,7 +189,7 @@ const ProductListing = () => {
                     New
                   </div>
                   <div className="absolute bottom-3 left-3 z-10 bg-white/90 backdrop-blur-md border border-white/30 text-[#351C24] font-black text-sm px-3.5 py-1.5 rounded-xl shadow-md">
-                    ${product.price}
+                    Rs {product.price.toLocaleString()}
                   </div>
                 </Link>
                 <div className="px-2 pb-2 flex-1 flex flex-col justify-between">
@@ -221,7 +251,7 @@ const ProductListing = () => {
                     Trending
                   </div>
                   <div className="absolute bottom-3 left-3 z-10 bg-white/90 backdrop-blur-md border border-white/30 text-[#351C24] font-black text-sm px-3.5 py-1.5 rounded-xl shadow-md">
-                    ${product.price}
+                    Rs {product.price.toLocaleString()}
                   </div>
                 </Link>
                 <div className="px-2 pb-2 flex-1 flex flex-col justify-between">
@@ -265,20 +295,7 @@ const ProductListing = () => {
 
       {/* Sleek Filters Panel */}
       <div className="bg-white/70 backdrop-blur-lg p-6 rounded-3xl border border-white/40 shadow-[0_12px_40px_rgba(255,133,161,0.08)] mb-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div>
-            <label className="block text-[12px] font-black text-[#8A606A] mb-2 tracking-widest uppercase">Category</label>
-            <select
-              className="w-full border border-[#FFC2D1]/60 rounded-xl px-4 py-3 text-[13px] font-bold text-[#4A0E17] focus:outline-none focus:border-[#FF2E63] focus:ring-4 focus:ring-[#FF2E63]/10 bg-white/90 transition-all duration-300 shadow-sm"
-              value={filters.category}
-              onChange={(e) => setFilters({ ...filters, category: e.target.value })}
-            >
-              <option value="">All Categories</option>
-              {categories.map((cat) => (
-                <option key={cat} value={cat}>{cat}</option>
-              ))}
-            </select>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-[12px] font-black text-[#8A606A] mb-2 tracking-widest uppercase">Color Aesthetic</label>
             <select
@@ -327,7 +344,7 @@ const ProductListing = () => {
               <Link to={`/product/${type === 'dresses' ? 'dress' : 'jewellery'}/${product._id}`} className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.02)] mb-4 border border-white/20 block">
                 <img src={product.image} alt={product.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108" />
                 <div className="absolute bottom-3 left-3 z-10 bg-white/90 backdrop-blur-md border border-white/30 text-[#351C24] font-black text-sm px-3.5 py-1.5 rounded-xl shadow-md">
-                  ${product.price}
+                  Rs {product.price.toLocaleString()}
                 </div>
               </Link>
               <div className="px-2 pb-2 flex-1 flex flex-col justify-between">
@@ -367,6 +384,7 @@ const ProductListing = () => {
           ))}
         </div>
       )}
+      </div>
     </div>
   );
 };

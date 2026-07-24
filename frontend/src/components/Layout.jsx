@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
+import { useAuth } from '../context/AuthContext';
 
 const Layout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
-  const isHome = location.pathname === '/';
+  const navigate = useNavigate();
+  const { user, logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+    setSidebarOpen(false);
+    navigate('/');
+  };
 
   const menuItems = [
     { name: 'Home', path: '/' },
@@ -20,35 +28,42 @@ const Layout = ({ children }) => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#FFE5EC] via-[#FFC2D1] to-[#FFE5EC] flex flex-col lg:flex-row w-full overflow-x-hidden">
-      {/* Backdrop overlay */}
+    <div className="min-h-screen bg-[#FAF7F5] text-[#351C24] flex flex-col w-full overflow-x-hidden relative">
+      
+      {/* 1. Backdrop Overlay (Always slides on top of page content) */}
       {sidebarOpen && (
         <div 
-          className={`fixed inset-0 bg-black/40 backdrop-blur-[2px] z-40 transition-opacity duration-300 ${
-            isHome ? 'lg:hidden' : 'block'
-          }`}
+          className="fixed inset-0 bg-black/60 backdrop-blur-[4px] z-40 transition-opacity duration-300"
           onClick={() => setSidebarOpen(false)}
         />
       )}
 
-      {/* Sidebar */}
-      <aside className={`fixed left-0 top-0 h-full w-64 bg-[#FFC2D1]/95 backdrop-blur-md border-r border-[#FF85A1] transform transition-transform duration-300 z-50 ${
-        sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-      } ${isHome ? 'lg:translate-x-0' : ''}`}>
-        <div className="p-6 flex flex-col h-full">
+      {/* 2. Slide-out Sidebar Drawer */}
+      <aside 
+        className={`fixed left-0 top-0 h-full w-72 bg-[#3D0B13] text-[#FAF7F5] border-r border-white/5 transform transition-transform duration-300 ease-in-out z-50 shadow-2xl flex flex-col justify-between ${
+          sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        }`}
+      >
+        <div className="p-6 flex flex-col h-full overflow-y-auto">
+          {/* Sidebar Header */}
           <div className="flex justify-between items-center mb-8">
-            <h2 className="text-[28px] font-extrabold text-[#FF2E63] tracking-wider drop-shadow-sm">VOGUE ME</h2>
-            {/* Close button */}
+            <h2 
+              className="text-2xl font-semibold tracking-[0.2em]" 
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            >
+              VOGUE ME
+            </h2>
             <button 
-              className={`text-[#601A2E] hover:text-[#FF2E63] text-xl transition-all duration-200 ${
-                isHome ? 'lg:hidden' : 'block'
-              }`} 
+              className="text-[#FAF7F5]/80 hover:text-white text-2xl transition-colors duration-200" 
               onClick={() => setSidebarOpen(false)}
+              aria-label="Close menu"
             >
               <i className="ti ti-x"></i>
             </button>
           </div>
-          <nav className="space-y-2 flex-1">
+
+          {/* Sidebar Links */}
+          <nav className="space-y-1.5 flex-1">
             {menuItems.map((item) => {
               const isActive = location.pathname === item.path;
               return (
@@ -56,10 +71,10 @@ const Layout = ({ children }) => {
                   key={item.name}
                   to={item.path}
                   onClick={() => setSidebarOpen(false)}
-                  className={`block font-bold transition-all py-3 px-4 rounded-xl ${
+                  className={`block py-3 px-4 rounded-xl text-sm font-semibold tracking-wide transition-all ${
                     isActive
-                      ? 'bg-[#FF2E63] text-white shadow-[0_4px_12px_rgba(255,46,99,0.2)]'
-                      : 'text-[#601A2E] hover:text-[#FF2E63] hover:bg-white/20'
+                      ? 'bg-[#4A0E17] text-white shadow-md border-l-4 border-[#FF8DA1]'
+                      : 'text-[#FAF7F5]/85 hover:text-white hover:bg-white/5'
                   }`}
                 >
                   {item.name}
@@ -67,15 +82,55 @@ const Layout = ({ children }) => {
               );
             })}
           </nav>
+
+          {/* Authentication & User Section inside Sidebar Drawer */}
+          <div className="pt-6 border-t border-white/10 mt-6 space-y-3">
+            {user ? (
+              <div className="space-y-3">
+                <div className="px-4 py-2">
+                  <p className="text-[11px] text-[#FAF7F5]/60 uppercase tracking-widest font-bold">Logged In As</p>
+                  <p className="text-sm font-semibold truncate text-[#FF8DA1]">{user.name || user.email}</p>
+                </div>
+                <Link
+                  to="/profile"
+                  onClick={() => setSidebarOpen(false)}
+                  className="block w-full text-center py-3 text-sm font-bold text-[#4A0E17] bg-[#FAF7F5] hover:bg-[#FAF7F5]/90 rounded-xl transition-all shadow-md active:scale-98"
+                >
+                  My Profile
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="block w-full text-center py-3 text-sm font-bold border border-white/20 hover:bg-white/5 rounded-xl transition-all"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 gap-3">
+                <Link
+                  to="/login"
+                  onClick={() => setSidebarOpen(false)}
+                  className="block text-center py-3 text-sm font-bold border border-white/20 hover:bg-white/5 rounded-xl transition-all"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/signup"
+                  onClick={() => setSidebarOpen(false)}
+                  className="block text-center py-3 text-sm font-bold text-[#4A0E17] bg-[#FAF7F5] hover:bg-[#FAF7F5]/90 rounded-xl transition-all shadow-md active:scale-98"
+                >
+                  Signup
+                </Link>
+              </div>
+            )}
+          </div>
         </div>
       </aside>
 
-      {/* Main Content Container */}
-      <div className={`flex-1 flex flex-col min-h-screen w-full overflow-x-hidden transition-all duration-300 ${
-        isHome ? 'lg:ml-64' : 'lg:ml-0'
-      }`}>
-        <Navbar toggleSidebar={() => setSidebarOpen(!sidebarOpen)} sidebarOpen={sidebarOpen} isHome={isHome} />
-        <main className="flex-1 flex flex-col">
+      {/* 3. Main Full-Width Content Container */}
+      <div className="flex-1 flex flex-col min-h-screen w-full overflow-x-hidden transition-all duration-300">
+        <Navbar toggleSidebar={() => setSidebarOpen(!sidebarOpen)} sidebarOpen={sidebarOpen} />
+        <main className="flex-1 flex flex-col w-full">
           {children}
         </main>
       </div>

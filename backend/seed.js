@@ -4,6 +4,38 @@ const Outfit = require('./models/Outfit');
 
 const sampleDresses = [
   {
+    "name": "Scarlet Silk Gown",
+    "category": "Formal",
+    "color": "Red",
+    "price": 189,
+    "image": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&fit=crop",
+    "description": "Exquisite scarlet red silk gown with elegant styling, perfect for evening wear."
+  },
+  {
+    "name": "Mint & Peach Embroidered Shalwar Kameez",
+    "category": "Traditional",
+    "color": "Green",
+    "price": 189,
+    "image": "/images/pakistani_shalwar_kameez.png",
+    "description": "Premium Pakistani style designer Shalwar Kameez with elegant mint green embroidery and peach accents, tailored in luxury soft fabric."
+  },
+  {
+    "name": "Garden Floral Wrap",
+    "category": "Casual",
+    "color": "Pink",
+    "price": 99,
+    "image": "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=600&fit=crop",
+    "description": "Lovely garden floral wrap dress with a relaxed silhouette."
+  },
+  {
+    "name": "Blush Evening Dress",
+    "category": "Party",
+    "color": "Pink",
+    "price": 159,
+    "image": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600&fit=crop",
+    "description": "Charming blush evening dress with delicate details."
+  },
+  {
     "name": "Sky Blue Printed Salwar Kameez (Dress #6)",
     "category": "Casual",
     "color": "Blue",
@@ -1172,3 +1204,22 @@ async function seedDatabase() {
 }
 
 module.exports = seedDatabase;
+
+if (require.main === module) {
+  const mongoose = require('mongoose');
+  const dotenv = require('dotenv');
+  dotenv.config();
+  const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/vogueme';
+  mongoose.connect(mongoUri)
+    .then(async () => {
+      console.log('Connected to MongoDB for seeding...');
+      await seedDatabase();
+      await mongoose.disconnect();
+      console.log('Disconnected from MongoDB.');
+      process.exit(0);
+    })
+    .catch(err => {
+      console.error('Error connecting to MongoDB:', err);
+      process.exit(1);
+    });
+}

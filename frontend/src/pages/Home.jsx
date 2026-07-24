@@ -6,13 +6,32 @@ const Home = () => {
   const [newArrivals, setNewArrivals] = useState([]);
   const [trendingNow, setTrendingNow] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [activeSlide, setActiveSlide] = useState(0);
 
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  // Static hero dresses for homepage
+  const heroDresses = [
+    {
+      _id: 'hero-2',
+      name: 'Emerald Embroidered Dress with Dupatta',
+      category: 'Traditional',
+      image: '/images/dress_7.png',
+      price: 12500
+    },
+    {
+      _id: 'hero-3',
+      name: 'Elegant Green Traditional Dress',
+      category: 'Party',
+      image: '/images/dress_8.png',
+      price: 11800
     }
-  };
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % heroDresses.length);
+    }, 8000);
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     const fetchHomeProducts = async () => {
@@ -24,17 +43,38 @@ const Home = () => {
         const allDresses = dressesRes.data || [];
         const allJewellery = jewelleryRes.data || [];
 
-        // For New Arrivals: take first 2 dresses and first 2 jewellery items
-        const arrivals = [
-          ...allDresses.slice(0, 2).map(d => ({ ...d, type: 'dress' })),
-          ...allJewellery.slice(0, 2).map(j => ({ ...j, type: 'jewellery' }))
-        ];
+        // For New Arrivals: take first 4 dresses, replace with Pakistani dress
+        let arrivals = allDresses.slice(0, 4).map(d => ({ ...d, type: 'dress' }));
+        // Replace first dress with Pakistani dress
+        if (arrivals.length > 0) {
+          arrivals[0] = {
+            _id: 'pakistani-1',
+            name: 'Pakistani Casual Dress',
+            category: 'Casual',
+            image: '/images/party_2.png',
+            price: 5800,
+            type: 'dress'
+          };
+        }
+        // Set reasonable PKR prices with variation based on category
+        arrivals = arrivals.map((d, index) => {
+          const basePrice = d.category === 'Casual' ? 6000 : 
+                           d.category === 'Party' ? 12000 : 
+                           d.category === 'Wedding' ? 15000 : 8000;
+          const variation = (index % 3 - 1) * 500; // -500, 0, or +500
+          return { ...d, price: basePrice + variation };
+        });
 
-        // For Trending Now: take the next 2 dresses and next 2 jewellery items
-        const trending = [
-          ...allDresses.slice(2, 4).map(d => ({ ...d, type: 'dress' })),
-          ...allJewellery.slice(2, 4).map(j => ({ ...j, type: 'jewellery' }))
-        ];
+        // For Trending Now: take the next 4 dresses
+        let trending = allDresses.slice(4, 8).map(d => ({ ...d, type: 'dress' }));
+        // Set reasonable PKR prices with variation based on category
+        trending = trending.map((d, index) => {
+          const basePrice = d.category === 'Casual' ? 6000 : 
+                           d.category === 'Party' ? 12000 : 
+                           d.category === 'Wedding' ? 15000 : 8000;
+          const variation = (index % 3 - 1) * 500; // -500, 0, or +500
+          return { ...d, price: basePrice + variation };
+        });
 
         setNewArrivals(arrivals);
         setTrendingNow(trending);
@@ -49,243 +89,273 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="w-full">
-      {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#FFD2DF] via-[#FFE3EB] to-[#FFD2DF] pt-12 pb-12 border-b border-[#FF85A1]">
-        <div className="max-w-[1400px] mx-auto px-8 flex flex-col lg:flex-row items-center justify-between gap-8 animate-fadeIn">
-          
-          {/* Left Dress Model Image */}
-          <div className="w-full lg:w-1/4 hidden lg:block animate-slideIn">
-            <div 
-              onClick={() => scrollToSection('new-arrivals-section')}
-              className="relative group overflow-hidden rounded-2xl border-4 border-white shadow-[0_15px_30px_rgba(255,74,122,0.15)] transition-all duration-500 hover:scale-[1.03] hover:shadow-[0_20px_40px_rgba(255,74,122,0.25)] cursor-pointer"
-            >
-              <img 
-                src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=533&fit=crop" 
-                alt="Latest Dress Collection Left" 
-                className="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#FF2E63]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                <p className="text-white text-sm font-semibold tracking-wider">NEW ARRIVALS</p>
-              </div>
-            </div>
-          </div>
+    <div className="w-full bg-pink-50">
+      
+      {/* 1. HERO SECTION (Dress Image Carousel) */}
+      <section className="relative w-full h-[450px] sm:h-[600px] md:h-[650px] overflow-hidden flex items-center justify-end px-6 sm:px-12 md:px-24">
+        {/* Dress Image Background */}
+        {heroDresses.length > 0 ? (
+          <img
+            src={heroDresses[activeSlide]?.image}
+            alt={heroDresses[activeSlide]?.name}
+            className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none bg-zinc-800 animate-kenBurns"
+          />
+        ) : (
+          <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-pink-100 to-pink-200 z-0" />
+        )}
 
-          {/* Center Content */}
-          <div className="w-full lg:w-2/4 text-center py-8">
-            <div className="mb-8">
-              <span className="bg-[#FFC2D1] text-[#FF2E63] text-[12px] font-bold tracking-widest px-4 py-1.5 rounded-full uppercase">Exclusive AI Fashion</span>
-              <h1 className="text-[56px] font-extrabold mb-4 text-[#351C24] leading-tight animate-slideIn tracking-tight mt-4">
-                VOGUE ME
-              </h1>
-              <p className="text-[24px] font-bold text-[#FF2E63] mb-6 animate-slideIn" style={{ animationDelay: '0.1s' }}>
-                Your AI Stylist Awaits
-              </p>
-            </div>
-            <p className="text-[16px] text-[#5C3A43] max-w-[500px] mx-auto mb-10 leading-relaxed font-medium animate-slideIn" style={{ animationDelay: '0.2s' }}>
-              Discover clothing that matches your unique style, body type, and lifestyle. Our AI learns your preferences with every interaction.
-            </p>
-            <div className="flex justify-center gap-4">
-              <Link to="/match-me" className="bg-gradient-to-r from-[#FF2E63] to-[#FF6B8B] text-white text-[14px] font-bold px-[40px] py-[14px] rounded-lg shadow-[0_8px_25px_rgba(255,46,99,0.3)] hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(255,46,99,0.45)] transition-all duration-300 inline-block">
-                Start Styling Now
-              </Link>
-              <Link to="/products/dresses" className="bg-[#FFF0F2] text-[#FF2E63] border-2 border-[#FF2E63] text-[14px] font-bold px-[36px] py-[12px] rounded-lg hover:bg-[#FF2E63] hover:text-white transition-colors duration-300 inline-block">
-                View Collection
-              </Link>
-            </div>
-          </div>
+        {/* Image Overlay Tint */}
+        <div className="absolute inset-0 bg-black/35 z-10 pointer-events-none" />
 
-          {/* Right Dress Model Image */}
-          <div className="w-full lg:w-1/4 hidden lg:block animate-slideIn" style={{ animationDelay: '0.1s' }}>
-            <div 
-              onClick={() => scrollToSection('trending-now-section')}
-              className="relative group overflow-hidden rounded-2xl border-4 border-white shadow-[0_15px_30px_rgba(255,74,122,0.15)] transition-all duration-500 hover:scale-[1.03] hover:shadow-[0_20px_40px_rgba(255,74,122,0.25)] cursor-pointer"
-            >
-              <img 
-                src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=533&fit=crop" 
-                alt="Latest Dress Collection Right" 
-                className="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#FF2E63]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                <p className="text-white text-sm font-semibold tracking-wider">TRENDING NOW</p>
-              </div>
-            </div>
-          </div>
+        {/* Right-aligned Hero Call To Action */}
+        <div className="z-20 text-right flex flex-col items-end gap-3 sm:gap-5 max-w-[600px] text-white">
+          <p className="text-[10px] sm:text-xs font-semibold tracking-[0.4em] uppercase text-white/90 animate-fadeIn font-mono">
+            {heroDresses[activeSlide]?.category || 'CURATED FOR YOU'}
+          </p>
+          <h1 
+            className="text-4xl sm:text-5xl md:text-6xl font-normal leading-tight tracking-wide animate-slideIn select-none"
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+          >
+            {heroDresses[activeSlide]?.name || 'VOGUE ME'}
+          </h1>
+          <Link 
+            to={`/product/dress/${heroDresses[activeSlide]?._id}`}
+            className="mt-2 px-8 py-3 text-[11px] sm:text-xs font-bold tracking-[0.3em] uppercase text-white border border-white hover:bg-white hover:text-[#4A0E17] transition-all duration-500 rounded-none shadow-[0_4px_12px_rgba(0,0,0,0.1)] active:scale-95 select-none"
+          >
+            SHOP NOW
+          </Link>
+        </div>
 
+        {/* Navigation Indicator Dots */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-3 select-none">
+          {heroDresses.map((dress, idx) => (
+            <button
+              key={dress._id}
+              onClick={() => setActiveSlide(idx)}
+              className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all duration-300 ${
+                activeSlide === idx ? 'bg-white scale-125' : 'bg-white/40 hover:bg-white/70'
+              }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
         </div>
       </section>
 
       {/* 2. FEATURES SECTION */}
-      <section id="features" className="py-24 max-w-[1400px] mx-auto px-8">
-        <h2 className="text-[32px] font-bold text-[#4A0E17] text-center mb-12">Why Choose VOGUE ME</h2>
+      <section id="features" className="py-20 max-w-[1400px] mx-auto px-6 sm:px-12 scroll-mt-24">
+        <div className="text-center mb-12">
+          <p className="text-[#D45D79] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] mb-1 font-sans">
+            DISCOVER THE VOGUE ME ADVANTAGE
+          </p>
+          <h2 
+            className="text-[32px] font-normal text-[#351C24] tracking-wide"
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+          >
+            Why Choose VOGUE ME
+          </h2>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Card 1 */}
-          <div className="bg-white/90 backdrop-blur-sm p-8 rounded-[12px] border border-[#FFC2D1] shadow-[0_10px_30px_rgba(255,46,99,0.06)] hover:scale-105 hover:shadow-[0_15px_45px_rgba(255,46,99,0.15)] transition-all duration-300 animate-scaleIn" style={{ animationDelay: '0.4s' }}>
-            <div className="text-4xl mb-4 animate-float">🧠</div>
-            <h3 className="text-[16px] font-semibold text-[#4A0E17] mb-3">Smart AI Learning</h3>
-            <p className="text-[13px] text-[#7D3E4D] leading-[1.6]">System learns your preferences with each interaction for increasingly accurate recommendations.</p>
+          <div className="bg-white/80 backdrop-blur-sm p-8 rounded-xl border border-black/5 shadow-sm hover:scale-[1.03] hover:shadow-md transition-all duration-300">
+            <div className="text-4xl mb-4">🧠</div>
+            <h3 className="text-base font-semibold text-[#351C24] mb-3">Smart AI Learning</h3>
+            <p className="text-sm text-[#5C3A43] leading-relaxed">System learns your preferences with each interaction for increasingly accurate recommendations.</p>
           </div>
           {/* Card 2 */}
-          <div className="bg-white/90 backdrop-blur-sm p-8 rounded-[12px] border border-[#FFC2D1] shadow-[0_10px_30px_rgba(255,46,99,0.06)] hover:scale-105 hover:shadow-[0_15px_45px_rgba(255,46,99,0.15)] transition-all duration-300 animate-scaleIn" style={{ animationDelay: '0.5s' }}>
-            <div className="text-4xl mb-4 animate-float" style={{ animationDelay: '0.2s' }}>👁️</div>
-            <h3 className="text-[16px] font-semibold text-[#4A0E17] mb-3">Virtual Try-On</h3>
-            <p className="text-[13px] text-[#7D3E4D] leading-[1.6]">See how clothes fit your body in real-time using advanced AR technology.</p>
+          <div className="bg-white/80 backdrop-blur-sm p-8 rounded-xl border border-black/5 shadow-sm hover:scale-[1.03] hover:shadow-md transition-all duration-300">
+            <div className="text-4xl mb-4">👁️</div>
+            <h3 className="text-base font-semibold text-[#351C24] mb-3">Virtual Try-On</h3>
+            <p className="text-sm text-[#5C3A43] leading-relaxed">See how clothes fit your body in real-time using advanced AR technology.</p>
           </div>
           {/* Card 3 */}
-          <div className="bg-white/90 backdrop-blur-sm p-8 rounded-[12px] border border-[#FFC2D1] shadow-[0_10px_30px_rgba(255,46,99,0.06)] hover:scale-105 hover:shadow-[0_15px_45px_rgba(255,46,99,0.15)] transition-all duration-300 animate-scaleIn" style={{ animationDelay: '0.6s' }}>
-            <div className="text-4xl mb-4 animate-float" style={{ animationDelay: '0.4s' }}>🎨</div>
-            <h3 className="text-[16px] font-semibold text-[#4A0E17] mb-3">Color Matching</h3>
-            <p className="text-[13px] text-[#7D3E4D] leading-[1.6]">Get colors that perfectly complement your skin tone and personal aesthetic.</p>
+          <div className="bg-[#4A0E17] text-white p-8 rounded-xl border border-white/5 shadow-sm hover:scale-[1.03] hover:shadow-md transition-all duration-300">
+            <div className="text-4xl mb-4">🎨</div>
+            <h3 className="text-base font-semibold text-white mb-3">Color Matching</h3>
+            <p className="text-sm text-white/80 leading-relaxed">Get colors that perfectly complement your skin tone and personal aesthetic.</p>
           </div>
         </div>
       </section>
 
-      {/* 3. PRODUCT COLLECTIONS */}
-      <section className="py-16 max-w-[1400px] mx-auto px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-[32px] font-bold text-[#4A0E17] mb-2">Shop by Collection</h2>
-          <p className="text-[13px] text-[#7D3E4D]">Explore our curated collections</p>
-        </div>
-        
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          <Link to="/products/dresses" className="group cursor-pointer">
-            <div className="relative w-full aspect-square rounded-[12px] mb-3 overflow-hidden transition-all duration-500 group-hover:shadow-[0_12px_32px_rgba(255,46,99,0.2)] group-hover:scale-[1.03]">
-              <img 
-                src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=400&h=400&fit=crop" 
-                alt="Dresses" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#4A0E17]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <h3 className="text-[14px] font-semibold text-[#4A0E17] text-center group-hover:text-[#FF2E63] transition-colors">Dresses</h3>
-          </Link>
-          <Link to="/products/jewellery" className="group cursor-pointer">
-            <div className="relative w-full aspect-square rounded-[12px] mb-3 overflow-hidden transition-all duration-500 group-hover:shadow-[0_12px_32px_rgba(255,46,99,0.2)] group-hover:scale-[1.03]">
-              <img 
-                src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop" 
-                alt="Jewellery" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#4A0E17]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <h3 className="text-[14px] font-semibold text-[#4A0E17] text-center group-hover:text-[#FF2E63] transition-colors">Jewellery</h3>
-          </Link>
-          <Link to="/match-me" className="group cursor-pointer">
-            <div className="relative w-full aspect-square rounded-[12px] mb-3 overflow-hidden transition-all duration-500 group-hover:shadow-[0_12px_32px_rgba(255,46,99,0.2)] group-hover:scale-[1.03]">
-              <img 
-                src="https://images.unsplash.com/photo-1490481651871-ab68de27d2bc?w=400&h=400&fit=crop" 
-                alt="Match Me" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#4A0E17]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <h3 className="text-[14px] font-semibold text-[#4A0E17] text-center group-hover:text-[#FF2E63] transition-colors">Match Me</h3>
-          </Link>
-          <Link to="/outfit-builder" className="group cursor-pointer">
-            <div className="relative w-full aspect-square rounded-[12px] mb-3 overflow-hidden transition-all duration-500 group-hover:shadow-[0_12px_32px_rgba(255,46,99,0.2)] group-hover:scale-[1.03]">
-              <img 
-                src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&h=400&fit=crop" 
-                alt="Outfit Builder" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#4A0E17]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <h3 className="text-[14px] font-semibold text-[#4A0E17] text-center group-hover:text-[#FF2E63] transition-colors">Outfit Builder</h3>
-          </Link>
-        </div>
-
-        {/* NEW ARRIVALS - Product Grid */}
-        <div id="new-arrivals-section" className="text-center mb-12 scroll-mt-24">
-          <h2 className="text-[32px] font-bold text-[#4A0E17] mb-2 hover:text-[#FF2E63] transition-colors cursor-pointer inline-block">
-            <Link to="/products/dresses">New Arrivals</Link>
+      {/* 3. CURATED NEW ARRIVALS GRID */}
+      <section className="py-16 max-w-[1400px] mx-auto px-6 sm:px-12">
+        <div className="text-center mb-12 animate-fadeIn">
+          <p className="text-[#D45D79] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] mb-1 font-sans">
+            CURATED BY YOUR AI STYLIST
+          </p>
+          <h2 
+            className="text-2xl sm:text-3xl md:text-4xl font-normal text-[#351C24] tracking-wide"
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+          >
+            New Arrivals
           </h2>
-          <div className="flex justify-center gap-4 text-xs font-black uppercase tracking-wider text-[#A9445D]/80 mt-1">
-            <Link to="/products/dresses" className="hover:text-[#FF2E63] border-r border-[#FFC2D1] pr-4">Shop Dresses</Link>
-            <Link to="/products/jewellery" className="hover:text-[#FF2E63]">Shop Jewellery</Link>
-          </div>
-        </div>
-        
-        {loading ? (
-          <div className="flex justify-center items-center py-12">
-            <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-[#FF2E63]"></div>
-          </div>
-        ) : (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-            {newArrivals.map((item) => (
-              <Link to={`/product/${item.type}/${item._id}`} key={item._id} className="group cursor-pointer">
-                <div className="relative w-full aspect-[3/4] rounded-[12px] mb-3 overflow-hidden transition-all duration-500 group-hover:shadow-[0_12px_32px_rgba(255,46,99,0.25)] group-hover:scale-[1.03]">
-                  <img 
-                    src={item.image} 
-                    alt={item.name} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute top-3 left-3 bg-[#FF2E63] text-white text-[11px] font-semibold px-3 py-1 rounded-full shadow-md">
-                    NEW
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#4A0E17]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <h3 className="text-[13px] text-[#7D3E4D] mb-1 group-hover:text-[#4A0E17] transition-colors truncate font-bold">{item.name}</h3>
-                <p className="text-[14px] font-bold text-[#FF2E63]">${item.price}</p>
-              </Link>
-            ))}
-          </div>
-        )}
-
-        {/* TRENDING NOW - Product Grid */}
-        <div id="trending-now-section" className="text-center mb-12 scroll-mt-24">
-          <h2 className="text-[32px] font-bold text-[#4A0E17] mb-2 hover:text-[#FF2E63] transition-colors cursor-pointer inline-block">
-            <Link to="/products/dresses">Trending Now</Link>
-          </h2>
-          <div className="flex justify-center gap-4 text-xs font-black uppercase tracking-wider text-[#A9445D]/80 mt-1">
-            <Link transition-colors to="/products/dresses" className="hover:text-[#FF2E63] border-r border-[#FFC2D1] pr-4">Shop Dresses</Link>
-            <Link to="/products/jewellery" className="hover:text-[#FF2E63]">Shop Jewellery</Link>
-          </div>
         </div>
 
         {loading ? (
-          <div className="flex justify-center items-center py-12">
-            <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-[#FF2E63]"></div>
+          <div className="flex justify-center items-center py-20">
+            <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-[#4A0E17]"></div>
           </div>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {trendingNow.map((item) => (
-              <Link to={`/product/${item.type}/${item._id}`} key={item._id} className="group cursor-pointer">
-                <div className="relative w-full aspect-[3/4] rounded-[12px] mb-3 overflow-hidden transition-all duration-500 group-hover:shadow-[0_12px_32px_rgba(255,46,99,0.25)] group-hover:scale-[1.03]">
-                  <img 
-                    src={item.image} 
-                    alt={item.name} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute top-3 left-3 bg-[#FF8DA1] text-[#351C24] text-[11px] font-black px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
-                    HOT
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16">
+            {newArrivals.map((item) => {
+              // Custom badges to match the mockup design
+              const isSale = item.name.toLowerCase().includes('wrap') || item.price < 100;
+              const isNew = !isSale;
+
+              return (
+                <Link to={`/product/${item.type}/${item._id}`} key={item._id} className="group cursor-pointer block">
+                  <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#FAF7F5] border border-black/5 shadow-sm transition-all duration-500 hover:shadow-md hover:scale-[1.02]">
+                    <img 
+                      src={item.image} 
+                      alt={item.name} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    
+                    {/* Badge Overlay */}
+                    {isNew && (
+                      <div className="absolute top-3 left-3 bg-[#E91E63] text-white text-[9px] font-bold px-2 py-1 uppercase tracking-widest shadow-sm select-none">
+                        NEW
+                      </div>
+                    )}
+                    {isSale && (
+                      <div className="absolute top-3 left-3 bg-[#3D0B13] text-white text-[9px] font-bold px-2 py-1 uppercase tracking-widest shadow-sm select-none">
+                        SALE
+                      </div>
+                    )}
+
+                    <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#4A0E17]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <h3 className="text-[13px] text-[#7D3E4D] mb-1 group-hover:text-[#4A0E17] transition-colors truncate font-bold">{item.name}</h3>
-                <p className="text-[14px] font-bold text-[#FF2E63]">${item.price}</p>
-              </Link>
-            ))}
+
+                  {/* Details */}
+                  <div className="mt-3 text-left">
+                    <h3 className="text-xs sm:text-sm font-semibold text-[#351C24] uppercase tracking-wider group-hover:text-[#4A0E17] transition-colors truncate">
+                      {item.name}
+                    </h3>
+                    <p className="text-sm font-bold text-[#4A0E17] mt-1">
+                      Rs {item.price.toLocaleString()}
+                    </p>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         )}
+
+        {/* 3. TRENDING NOW SECTION */}
+        <div className="text-center mt-20 mb-12">
+          <p className="text-[#D45D79] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] mb-1 font-sans">
+            LATEST FASHION TRENDS
+          </p>
+          <h2 
+            className="text-2xl sm:text-3xl md:text-4xl font-normal text-[#351C24] tracking-wide"
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+          >
+            Trending Now
+          </h2>
+        </div>
+
+        {loading ? (
+          <div className="flex justify-center items-center py-20">
+            <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-[#4A0E17]"></div>
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16">
+            {trendingNow.map((item) => {
+              const isSale = item.price < 2000 && item.price % 3 === 0;
+              const isNew = !isSale;
+
+              return (
+                <Link to={`/product/${item.type}/${item._id}`} key={item._id} className="group cursor-pointer block">
+                  <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#FAF7F5] border border-black/5 shadow-sm transition-all duration-500 hover:shadow-md hover:scale-[1.02]">
+                    <img 
+                      src={item.image} 
+                      alt={item.name} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    
+                    {/* Badge Overlay */}
+                    {isNew && (
+                      <div className="absolute top-3 left-3 bg-[#E91E63] text-white text-[9px] font-bold px-2 py-1 uppercase tracking-widest shadow-sm select-none">
+                        NEW
+                      </div>
+                    )}
+                    {isSale && (
+                      <div className="absolute top-3 left-3 bg-[#3D0B13] text-white text-[9px] font-bold px-2 py-1 uppercase tracking-widest shadow-sm select-none">
+                        SALE
+                      </div>
+                    )}
+
+                    <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  </div>
+
+                  {/* Details */}
+                  <div className="mt-3 text-left">
+                    <h3 className="text-xs sm:text-sm font-semibold text-[#351C24] uppercase tracking-wider group-hover:text-[#4A0E17] transition-colors truncate">
+                      {item.name}
+                    </h3>
+                    <p className="text-sm font-bold text-[#4A0E17] mt-1">
+                      Rs {item.price.toLocaleString()}
+                    </p>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        )}
+      </section>
+
+      {/* 4. DESIGN SHOWCASE / COLLECTION PROMO */}
+      <section className="bg-[#4A0E17] text-white py-20 px-6 sm:px-12 select-none">
+        <div className="max-w-[1200px] mx-auto text-center">
+          <p className="text-[#FF8DA1] text-xs font-bold uppercase tracking-[0.3em] mb-4">THE CHIC WAY OF EXPRESSION</p>
+          <h2 
+            className="text-3xl sm:text-5xl font-normal leading-tight max-w-[800px] mx-auto mb-8"
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+          >
+            Enhance Your Persona With Our AI Stylist Recommendation
+          </h2>
+          <div className="flex justify-center gap-4">
+            <Link 
+              to="/match-me" 
+              className="px-8 py-3.5 text-xs font-bold tracking-[0.2em] uppercase bg-white text-[#4A0E17] hover:bg-[#FAF7F5] transition-all"
+            >
+              TRY MATCH ME
+            </Link>
+            <Link 
+              to="/virtual-tryon" 
+              className="px-8 py-3.5 text-xs font-bold tracking-[0.2em] uppercase border border-white hover:bg-white/10 transition-all"
+            >
+              VIRTUAL TRY-ON
+            </Link>
+          </div>
+        </div>
       </section>
 
       {/* 5. FOOTER */}
-      <footer id="contact" className="bg-[#4A0E17] border-t border-[#FF85A1]/20 text-white mt-16 py-12 px-8 animate-fadeIn">
-        <div className="max-w-[1400px] mx-auto text-center opacity-90 text-[14px]">
-          <h3 className="text-[24px] font-bold text-[#FF6B8B] mb-3">VOGUE ME</h3>
-          <p className="mb-4 text-[#FFE5EC]/75">© 2026 VOGUE ME. All rights reserved.</p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 mb-6 text-sm font-semibold text-[#FFE5EC]/85">
-            <a href="mailto:support@vogueme.com" className="hover:text-[#FF6B8B] transition-colors flex items-center justify-center gap-2">
+      <footer id="contact" className="bg-[#3D0B13] border-t border-white/5 text-[#FAF7F5] py-16 px-6 sm:px-12">
+        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
+          <div className="flex flex-col items-center md:items-start">
+            <h3 
+              className="text-2xl font-bold tracking-[0.2em] mb-3 text-white"
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            >
+              VOGUE ME
+            </h3>
+            <p className="text-xs text-[#FAF7F5]/60">© 2026 VOGUE ME. All rights reserved.</p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-6 sm:gap-12 text-sm font-semibold">
+            <a href="mailto:support@vogueme.com" className="hover:text-[#FF8DA1] transition-colors flex items-center justify-center md:justify-start gap-2">
               <i className="ti ti-mail text-base"></i> support@vogueme.com
             </a>
-            <a href="tel:+15551234567" className="hover:text-[#FF6B8B] transition-colors flex items-center justify-center gap-2">
+            <a href="tel:+15551234567" className="hover:text-[#FF8DA1] transition-colors flex items-center justify-center md:justify-start gap-2">
               <i className="ti ti-phone text-base"></i> +1 (555) 123-4567 (Call Us)
             </a>
-            <Link to="/contact" className="hover:text-[#FF6B8B] transition-colors flex items-center justify-center gap-2">
+            <Link to="/contact" className="hover:text-[#FF8DA1] transition-colors flex items-center justify-center md:justify-start gap-2">
               <i className="ti ti-info-circle text-base"></i> Contact Page
             </Link>
           </div>
-          <p className="text-[#FF6B8B]/80 font-medium text-[11px] tracking-wider uppercase">Powered by Advanced AI</p>
         </div>
       </footer>
     </div>

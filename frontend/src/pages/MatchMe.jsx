@@ -1,15 +1,34 @@
+/**
+ * MatchMe Page Component
+ * 
+ * An interactive styling advisor that helps users find complementary jewellery (necklaces,
+ * earrings, bracelets) for a selected dress. Can be pre-loaded with a specific dress ID
+ * via URL query parameters (e.g. `?dress=123`). Communicates with backend endpoints to
+ * fetch dress catalogs and recommendation sets.
+ */
+
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import api from '../utils/api';
 
 const MatchMe = () => {
+  // Hook for reading URL query string search parameters
   const [searchParams] = useSearchParams();
   const dressId = searchParams.get('dress');
+
+  // React state storing all available dresses in the catalogue
   const [dresses, setDresses] = useState([]);
+  
+  // React state storing the currently chosen dress object
   const [selectedDress, setSelectedDress] = useState(null);
+  
+  // React state storing matching items categorised into necklaces, earrings, and bracelets
   const [matchingJewellery, setMatchingJewellery] = useState({ necklaces: [], earrings: [], bracelets: [] });
+  
+  // React state indicating whether recommendations are actively being requested/loaded
   const [loading, setLoading] = useState(false);
 
+  // Fetch full dress catalogue on mount and automatically select dress if ID is present in URL query
   useEffect(() => {
     fetchDresses();
     if (dressId) {
@@ -17,6 +36,9 @@ const MatchMe = () => {
     }
   }, []);
 
+  /**
+   * Fetches full dress catalog items from the database
+   */
   const fetchDresses = async () => {
     try {
       const response = await api.get('/dresses');
@@ -26,6 +48,9 @@ const MatchMe = () => {
     }
   };
 
+  /**
+   * Fetches details of a specific dress and its recommended matching jewellery
+   */
   const fetchDressById = async (id) => {
     try {
       setLoading(true);
@@ -39,6 +64,9 @@ const MatchMe = () => {
     }
   };
 
+  /**
+   * Fetches corresponding matching jewellery categorisations based on dress attributes
+   */
   const fetchMatchingJewellery = async (id) => {
     try {
       const response = await api.get(`/dresses/${id}/matching-jewellery`);
@@ -48,10 +76,14 @@ const MatchMe = () => {
     }
   };
 
+  /**
+   * Callback fired when a user selects a dress from the listing grid
+   */
   const handleDressSelect = async (dress) => {
     setSelectedDress(dress);
     await fetchMatchingJewellery(dress._id);
   };
+
 
   return (
     <div className="max-w-[1400px] w-full mx-auto px-8 py-12 animate-fadeIn flex-1">
